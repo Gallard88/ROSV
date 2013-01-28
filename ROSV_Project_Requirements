@@ -1,0 +1,49 @@
+ROSV.
+Remotely Operated Submerisable Vehicle.
+Ver 1, 28 Jan 2013.
+
+- Overview
+This project contains several hardware and software systems to control a submerges platform. 
+This system will relay live images to a remotely located operator. It is designed to operate in fresh water only, to a maximum depth of 3 metres. 
+It is not designed to operate in environments where there are strong currents.
+
+- Disclaimer
+This specification is only partially complete. If you think there is something missing please send me an email.
+
+Thomas Burns.
+thomasburns88@gmail.com
+
+Requirements.
+
+User Requirements.
+The project consists of two parts. The console, and the submarine. The console will remotely control the submarine and display the live viedo feed.
+
+Console: 
+The user/operator will require a mean to control the device. 
+This will be provided by a custom program that will use a joy stick for control. This program will contain a list of text boxes detailing 
+the various parameters of the system including:
+
+* Velocity in X,Y,Z axes.
+* How quickly it is turning.
+* Battery Voltage.
+* System temperature.
+* Current drawn by the motors.
+* Time since dive started.
+
+The console will also display live video from a camera mounted on the submarine. This will allow the user to see what they are doing. This video feed will also be recorded for future use.
+The system will only be able to support a single operator at a time, initially it will not support any observors, although this may be changed in future. This system will not contain any intelligence beyond the what is required to translate the operators instructions into commands for the various motors.
+
+Submarine:
+The submersible paltform will contain the camera and the hardware to operate it and move it around. 
+It will contains the battery pack, local processing power, a motor controller.
+The system will use a number of bilge pumps as directional thrusters to manover the platform around.
+
+
+- Open issues.
+N/A
+
+- Backlog.
+N/A
+
+
+

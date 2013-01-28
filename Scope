@@ -1,0 +1,18 @@
+ROSV Scope.
+
+Project Objective:
+To construct a submersible vehicle with a camera attached.
+
+Deliverables.
+* A Laptop/Tablet to control the system and view the camera.
+* A mobile platform capable of fitting in the boot of a car.
+* Manovorable in still water, can dive to a maximum depth of 3 metres.
+
+Tech Requirements.
+* Live streaming video, Minimum requirements:
+    - 5fps.
+    - 320x240 resolution.
+    - less than 0.5 seconds delay.
+* 1 hours battery life for normal ussage.
+
+ 
