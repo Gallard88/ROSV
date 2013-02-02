@@ -17,6 +17,7 @@ Requirements.
 
 User Requirements.
 The project consists of two parts. The console, and the submarine. The console will remotely control the submarine and display the live viedo feed.
+The combined system will require at least 1 hours battery life for normal operation.
 
 Console: 
 The user/operator will require a mean to control the device. 
@@ -37,6 +38,11 @@ Submarine:
 The submersible paltform will contain the camera and the hardware to operate it and move it around. 
 It will contains the battery pack, local processing power, a motor controller.
 The system will use a number of bilge pumps as directional thrusters to manover the platform around.
+The Submarine platform will contain a camera to stream video.
+Minimum Video requirements are:
+320x240 resolution.
+5 frames per second.
+less than 0.5 seconds delay.
 
 
 - Open issues.
