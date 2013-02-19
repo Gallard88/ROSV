@@ -1,0 +1,86 @@
+Submarine Control Protocol.
+Version 0.1 - 19 Feb 2013.
+
+---------------------------------------------------------------
+Case sensitive, plain text (ascii), "\r\n" packet delimiters.
+
+"Cmd: Arg\r\n" - will set Cmd to Arg.
+"Cmd" - Will request the vlaue of Cmd.
+
+Commands can be:
+Read only   (RO),
+Write Only  (WO),
+Read/Write  (RW).
+
+Commands are sent from one piece of software (Eg Console or Control) to the other.
+
+---------------------------------------------------------------
+Velocity Commands
+
+"vForward: %\r\n" - Set the ROSV's forward velocity as a percentage
++ve = Forward
+Console - > Control
+
+"vSide: %\r\n" - Set the ROSV's side velocity as a percentage
++ve = Right
+Console - > Control
+
+"vDepth: %\r\n" - Set the ROSV's depth motors velocity as a percentage
++ve value make the machine submerge deeper.
+Console - > Control
+
+"vTurn: %\r\n" - Set the ROSV's turning velocity as a percentage
++ve = Clockwise
+Console - > Control
+
+---------------------------------------------------------------
+"Batt: V\r\n" - Read the PWM Controller's voltage in Volts.
+Control - Console
+
+"Current: I\r\n" - Read the PWM_Controller's Current in Amperes.
+Control - Console
+
+"Temp: C\r\n" - Read the Temperture of the system in degrees celcuis.
+Control - Console
+
+---------------------------------------------------------------
+Start/Stop Commands
+
+"State: st\r\n" - Returns the System state.
+Console - > Control
+
+"SetState: [Start|Stop]\r\n" - Sets the System state.
+Console - > Control
+
+Start - Signals the beggining of a dive, starts all dive counters. Enabled specific hardware: Eg Depth Motors, Camera Logging, starts dive timer
+
+Stop - Signals the end of a dive, stops all counters.
+Disables specific modules: Eg Depth Motors, Camera Logging, stops dive timer.
+
+"RunTime: seconds\r\n" - Returns the number of seconds since the dive began.
+Control - Console
+
+---------------------------------------------------------------
+Camera Related Commands.
+
+"SetBrightness: Left% Right%\r\n" - Sets the brightness of the LEDs in the camera housing.
+Console - > Control
+
+---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
