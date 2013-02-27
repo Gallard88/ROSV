@@ -1,7 +1,5 @@
-Submarine Control Protocol.
-Version 0.1 - 19 Feb 2013.
 
----------------------------------------------------------------
+Submarine Control Protocol.
 Case sensitive, plain text (ascii), "\r\n" packet delimiters.
 
 "Cmd: Arg\r\n" - will set Cmd to Arg.
