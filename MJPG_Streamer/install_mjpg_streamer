@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Gettings required programs"
+sudo apt-get install -y libv4l-dev libjpeg8-dev subversion imagemagick
+
+echo "Building MJPG Streamer"
+# Maybe add test to see if it already exists
+# remove and install perhaps...
+svn co https://mjpg-streamer.svn.sourceforge.net/svnroot/mjpg-streamer mjpg-streamer
+cd mjpg-streamer/mjpg-streamer
+make USE_LIBV4L2=true clean all
+sudo make DESTDIR=/usr install
+
