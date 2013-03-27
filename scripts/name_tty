@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ $# -lt 2 ]; then
+  echo "Usage: name_tty ttyPort newName"
+  exit 0
+fi
+
+USB_Ser=$(udevadm info -a -n $1 | grep '{serial}' | head -n1 )
+LINE="SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"0403\", ATTRS{idProuct}==\"6001\", "
+LINE+=$USB_Ser
+LINE+=" SYMLINK+=\"$2\""
+echo $LINE
+
+echo "Writing Line"
+echo $LINE >> /etc/udev/rules.d/99-usb-serial.rules
+echo "Done"
+
