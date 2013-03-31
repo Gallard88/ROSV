@@ -9,4 +9,3 @@ svn co https://mjpg-streamer.svn.sourceforge.net/svnroot/mjpg-streamer mjpg-stre
 cd mjpg-streamer/mjpg-streamer
 make USE_LIBV4L2=true clean all
 sudo make DESTDIR=/usr install
-

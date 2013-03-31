@@ -1,0 +1,16 @@
+#!/bin/bash
+# Options
+res="160x120"
+framerate="3"
+quality="100"
+cam_device="/dev/video0"
+
+if [ $# -eq 1 ]
+then
+  cam_device=$1
+fi
+
+logger "Starting MJPG Streamer - $cam_device"
+logger $(mjpg_streamer -i "/usr/lib/input_uvc.so -y -d $cam_device -r $res -f $framerate -q $quality -n" -o "/usr/lib/output_http.so -n")
+logger "MJPG Script is shuting down"
+
