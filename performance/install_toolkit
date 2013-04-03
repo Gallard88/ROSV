@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo apt-get install ifstat nethogs iftop vnstat sysstat htop -y
+

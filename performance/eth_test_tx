@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ $# -ne 1 ]
+then
+  echo "Usage: eth_test_tx host"
+  exit
+fi
+
+dd if=/dev/zero bs=16000 count=50000 | nc -v $1 12345
+

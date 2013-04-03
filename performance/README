@@ -1,0 +1,36 @@
+Performance Measuring Tools.
+
+This dir contains a list of tools for measuring the 
+performance of your system. Included are tools for 
+periodically measuring CPU %, Memory, and Networking
+
+--------------------------------------------------------
+Cpu
+
+--------------------------------------------------------
+Memory
+
+--------------------------------------------------------
+Networking
+
+===============
+eth_test_tx & eth_test_rx
+These scripts are useful for measuring the maximum performance over 
+a link. tx sends a large block of data to rx, which dumps to /dev/null
+This system uses port 12345. Run rx first on the client. Then start tx 
+on the server side.
+Both programs close when the transfer is complete.
+
+===============
+To do, add script that measures network and record to file.
+
+===============
+nethogs
+iftop
+ifstat
+vnstat
+
+
+
+
+
