@@ -12,7 +12,9 @@ Memory
 
 --------------------------------------------------------
 Networking
-
+tcp_perf_mon
+Script to measure and record Ethernet traffic throughput.
+Records it to a dir in /var/
 ===============
 eth_test_tx & eth_test_rx
 These scripts are useful for measuring the maximum performance over 

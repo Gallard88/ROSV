@@ -1,0 +1,3 @@
+#!/bin/bash
+rm -rf /usr/local/bin/performance_monitor
+rm -rf /var/log/performance

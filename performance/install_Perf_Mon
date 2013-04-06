@@ -1,0 +1,3 @@
+#!/bin/bash
+install performance_monitor /usr/local/bin
+mkdir /var/log/performance

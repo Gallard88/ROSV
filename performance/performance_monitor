@@ -1,0 +1,40 @@
+#!/bin/bash
+# script to record various system characteristics
+
+# System Time
+FILENAME="/var/log/performance/"$(date +%Y%m%d)"_Monitor.csv"
+TIME=$(date +%H:%M:%S)
+
+if [ ! -e $FILENAME ]
+then
+  echo "Time, Temperature, \"CPU 1 Min\",\" CPU 5 Min\",\"CPU 15 Min\",\"Total Mem\",\" Used Mem\",\" Free Mem\",\" Shared Mem\",\" Buffer Mem\",\" Cached Mem\",\"Eth KB/s In\",\"Eth KB/s Out\"" > $FILENAME
+fi
+
+#==============================================
+# grab ethernet data
+ETH=$(ifstat -n -i eth0 1 1 | grep -v KB |\
+	 grep -v eth0 |\
+	 sed -e 's/      /,/g')
+
+#==============================================
+# grab CPU
+CPU=$(uptime | cut -d ':' -f 5)
+
+#==============================================
+# grab Memory
+MEM=$(free -bm | grep Mem: |\
+	 sed -e 's/Mem: *//' -e 's/ ?/,/g' \
+	 -e 's/      /,/g')
+
+#==============================================
+# grab Temperature
+TEMP=$(sensors | grep temp | cut -d '+' -f 2 | cut -d 'C' -f 1  )
+
+#==============================================
+# record to a file
+LINE=$TIME','$TEMP','$CPU','$MEM','$ETH
+
+echo $LINE >> $FILENAME
+
+#==========================
+#==========================
