@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo install MJPG_Start /usr/local/bin
 sudo install MJPG_Run /usr/local/bin
 sudo install MJPG_Stop /usr/local/bin
