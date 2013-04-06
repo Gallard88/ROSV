@@ -7,7 +7,7 @@ TIME=$(date +%H:%M:%S)
 
 if [ ! -e $FILENAME ]
 then
-  echo "Time, Temperature, \"CPU 1 Min\",\" CPU 5 Min\",\"CPU 15 Min\",\"Total Mem\",\" Used Mem\",\" Free Mem\",\" Shared Mem\",\" Buffer Mem\",\" Cached Mem\",\"Eth KB/s In\",\"Eth KB/s Out\"" > $FILENAME
+  echo "Time, \"CPU 1 Min\",\" CPU 5 Min\",\"CPU 15 Min\",\"Total Mem\",\" Used Mem\",\" Free Mem\",\" Shared Mem\",\" Buffer Mem\",\" Cached Mem\",\"Eth KB/s In\",\"Eth KB/s Out\",\"Temperature\"" > $FILENAME
 fi
 
 #==============================================
@@ -28,11 +28,12 @@ MEM=$(free -bm | grep Mem: |\
 
 #==============================================
 # grab Temperature
-TEMP=$(sensors | grep temp | cut -d '+' -f 2 | cut -d 'C' -f 1  )
+#TEMP=$(sensors | grep temp | cut -d '+' -f 2 | cut -d 'C' -f 1  )
+TEMP="N/A"
 
 #==============================================
 # record to a file
-LINE=$TIME','$TEMP','$CPU','$MEM','$ETH
+LINE=$TIME','$CPU_1','$CPU_5','$CPU_15','$MEM','$ETH','$TEMP
 
 echo $LINE >> $FILENAME
 
