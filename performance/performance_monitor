@@ -18,7 +18,9 @@ ETH=$(ifstat -n -i eth0 1 1 | grep -v KB |\
 
 #==============================================
 # grab CPU
-CPU=$(uptime | cut -d ':' -f 5)
+CPU_1=$(uptime | sed -e 's/.*load average: \(.*\...\), \(.*\...\), \(.*\...\)/\1/' -e 's/ //g')
+CPU_5=$(uptime | sed -e 's/.*load average: \(.*\...\), \(.*\...\), \(.*\...\)/\2/' -e 's/ //g')
+CPU_15=$(uptime | sed -e 's/.*load average: \(.*\...\), \(.*\...\), \(.*\...\)/\3/' -e 's/ //g')
 
 #==============================================
 # grab Memory
