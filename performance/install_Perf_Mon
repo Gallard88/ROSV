@@ -1,3 +1,5 @@
 #!/bin/bash
 install performance_monitor /usr/local/bin
+install eth_test_rx /usr/local/bin
+install eth_test_tx /usr/local/bin
 mkdir /var/log/performance
