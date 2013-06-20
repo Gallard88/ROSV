@@ -6,15 +6,27 @@ periodically measuring CPU %, Memory, and Networking
 
 --------------------------------------------------------
 Cpu
+uptime
+top/htop
+mpstat
 
 --------------------------------------------------------
 Memory
+free
+vmstat
 
 --------------------------------------------------------
 Networking
-tcp_perf_mon
-Script to measure and record Ethernet traffic throughput.
-Records it to a dir in /var/
+nethogs
+iftop
+ifstat
+vnstat
+
+--------------------------------------------------------
+performance_monitor
+Script to measure and record CPU, Memory, and Ethernet traffic throughput.
+Records it to a dir in /var/log/Performance
+
 ===============
 eth_test_tx & eth_test_rx
 These scripts are useful for measuring the maximum performance over 
@@ -24,14 +36,7 @@ on the server side.
 Both programs close when the transfer is complete.
 
 ===============
-To do, add script that measures network and record to file.
-
 ===============
-nethogs
-iftop
-ifstat
-vnstat
-
 
 
 
