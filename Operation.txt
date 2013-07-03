@@ -1,0 +1,11 @@
+Remotely Operated Submersible Vehicle.
+
+System consists of Submersible Vehicle, powered by a Raspberry Pi (Raspbian),
+and a controller (Laptop running control program).
+
+Motors controlled by custom built motor board. 
+System powered by 2x 12V 7.2AH SLA batteries.
+
+Motors are disabled when there is no controller 
+Dive Time is measured from when camera is started.
+

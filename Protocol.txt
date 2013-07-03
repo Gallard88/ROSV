@@ -1,84 +1,70 @@
-
 Submarine Control Protocol.
+v0.01
 Case sensitive, plain text (ascii), "\r\n" packet delimiters.
+Client Server Model, ROSV_Control forms the server.
 
-"Cmd: Arg\r\n" - will set Cmd to Arg.
-"Cmd" - Will request the vlaue of Cmd.
+TCP Port 8008 = Control, 1 connection allowed
+TCP Port 8009 = Observer, many connections allowed
 
-Commands can be:
-Read only   (RO),
-Write Only  (WO),
-Read/Write  (RW).
-
-Commands are sent from one piece of software (Eg Console or Control) to the other.
+Control has full access to read/write commands.
+Observer has access to read commands only
 
 ---------------------------------------------------------------
-Velocity Commands
+Write Commands
+These commands do not send a response.
 
-"vForward: %\r\n" - Set the ROSV's forward velocity as a percentage
-+ve = Forward
-Console - > Control
+setPos
+"setPos: X,Y,Z,ROLL,PITCH,YAW\r\n"
+Set the target Position when in Position Mode.
 
-"vSide: %\r\n" - Set the ROSV's side velocity as a percentage
-+ve = Right
-Console - > Control
+setVel
+"setVel: X,Y,Z,ROLL,PITCH,YAW\r\n"
+Set the target Velocity when in Velocity Mode.
 
-"vDepth: %\r\n" - Set the ROSV's depth motors velocity as a percentage
-+ve value make the machine submerge deeper.
-Console - > Control
+setControlMode
 
-"vTurn: %\r\n" - Set the ROSV's turning velocity as a percentage
-+ve = Clockwise
-Console - > Control
+CamStart
+"CamStart: IP\r\n" - Calls the start camera script with IP as the argument.
 
----------------------------------------------------------------
-"Batt: V\r\n" - Read the PWM Controller's voltage in Volts.
-Control - Console
+CamStop
+"CamStop\r\n" - Calls the Cam Stop script.
 
-"Current: I\r\n" - Read the PWM_Controller's Current in Amperes.
-Control - Console
-
-"Temp: C\r\n" - Read the Temperture of the system in degrees celcuis.
-Control - Console
+LightToggle
+"LightToggle\r\n" - Toggles the light output from 0% PWM - 100% PWM
 
 ---------------------------------------------------------------
-Start/Stop Commands
+Read Commands
+Client sends a command, no argument.
+Server sends a response, "cmd: argument\r\n"
 
-"State: st\r\n" - Returns the System state.
-Console - > Control
+GetRealPos
+"GetRealPos: X, Y, Z, ROLL, PITCH, YAW\r\n"
 
-"SetState: [Start|Stop]\r\n" - Sets the System state.
-Console - > Control
+GetRealVel
+"GetRealVel: X, Y, Z, ROLL, PITCH, YAW\r\n"
 
-Start - Signals the beggining of a dive, starts all dive counters. Enabled specific hardware: Eg Depth Motors, Camera Logging, starts dive timer
+GetTargetPos
+"GetTargetPos: X, Y, Z, ROLL, PITCH, YAW\r\n"
 
-Stop - Signals the end of a dive, stops all counters.
-Disables specific modules: Eg Depth Motors, Camera Logging, stops dive timer.
+GetTargetVel
+"GetTargetVel: X, Y, Z, ROLL, PITCH, YAW\r\n"
 
-"RunTime: seconds\r\n" - Returns the number of seconds since the dive began.
-Control - Console
+GetDiveTime
+"GetDiveTime: [time]\r\n"
+Returns dive duration.
+
+GetVoltage
+"GetVoltage: [volt]\r\n"
+Returns the voltage of the main supply.
+
+GetTemp
+"GetTemp: [temp]\r\n"
+Returns the temperature measured by the PWM Control board.
 
 ---------------------------------------------------------------
-Camera Related Commands.
-
-"SetBrightness: Left% Right%\r\n" - Sets the brightness of the LEDs in the camera housing.
-Console - > Control
+GetControlMode
+"GetControlMode: [Mode]\r\n"
+Under development...
 
 ---------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---------------------------------------------------------------
