@@ -6,12 +6,13 @@ if [ $# -lt 2 ]; then
 fi
 
 USB_Ser=$(udevadm info -a -n $1 | grep '{serial}' | head -n1 )
-LINE="SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"0403\", ATTRS{idProuct}==\"6001\", "
-LINE+=$USB_Ser
-LINE+=" SYMLINK+=\"$2\""
+LINE+="SUBSYSTEMS==\"usb\", KERNEL==\"ttyUSB[0-9]*\", ATTRS{idVendor}==\"0403\", ATTRS{idProduct}==\"6001\"," LINE+=$USB_Ser
+LINE+=", SYMLINK+=\"$2\""
 echo $LINE
 
 echo "Writing Line"
-echo $LINE >> /etc/udev/rules.d/99-usb-serial.rules
-echo "Done"
+echo $LINE >> /etc/udev/rules.d/90-usb-serial.rules
 
+echo "Restarting udev"
+restart udev	# make udev reload rules
+echo "Done"
