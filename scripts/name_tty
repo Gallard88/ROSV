@@ -8,11 +8,9 @@ fi
 USB_Ser=$(udevadm info -a -n $1 | grep '{serial}' | head -n1 )
 LINE+="SUBSYSTEMS==\"usb\", KERNEL==\"ttyUSB[0-9]*\", ATTRS{idVendor}==\"0403\", ATTRS{idProduct}==\"6001\"," LINE+=$USB_Ser
 LINE+=", SYMLINK+=\"$2\""
-echo $LINE
 
-echo "Writing Line"
+echo "Implementing new rule: $2"
 echo $LINE >> /etc/udev/rules.d/90-usb-serial.rules
 
 echo "Restarting udev"
 restart udev	# make udev reload rules
-echo "Done"
