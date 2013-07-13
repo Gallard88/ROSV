@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+  echo "Usage: rm_tty ttyPort"
+fi
+
+sed '/$1/d' /etc/udev/rules.d/90-usb-serial.rules
