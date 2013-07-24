@@ -32,6 +32,15 @@ CamStop
 LightToggle
 "LightToggle\r\n" - Toggles the light output from 0% PWM - 100% PWM
 
+SetControlMode
+"SetControlMode: mode_number\r\n" - mode_number indiates 
+which mode to switch to:
+0 = Idle: All Motors Locked, default state.
+1 = Manual:
+2 = AutoPilot: Activates an external AI
+3 = Hold Position: Simple AI attempts to hold Sub in the same spot.
+When there is no controller/console connected the system will automatically switch
+to Idle mode.
 ---------------------------------------------------------------
 Read Commands
 Client sends a command, no argument.
@@ -61,10 +70,10 @@ GetTemp
 "GetTemp: [temp]\r\n"
 Returns the temperature measured by the PWM Control board.
 
----------------------------------------------------------------
 GetControlMode
 "GetControlMode: [Mode]\r\n"
-Under development...
+Returns the current control mode number. See SetControlMde for mode types.
 
+---------------------------------------------------------------
 ---------------------------------------------------------------
 ---------------------------------------------------------------
