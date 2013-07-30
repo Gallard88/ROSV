@@ -1,0 +1,2 @@
+#!/bin/bash
+raspivid -t 999999 -o – | nc $1 8080
