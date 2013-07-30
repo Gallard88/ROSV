@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sudo ifstat -nt > "$(date -u +%Y%m%d)_TCP_Mon"
-

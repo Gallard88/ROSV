@@ -1,0 +1,9 @@
+#!/bin/bash
+install eth_test_rx /usr/local/bin
+install eth_test_tx /usr/local/bin
+install PC_Stream /usr/local/bin
+install performance_monitor /usr/local/bin
+install RPI_Stream /usr/local/bin
+install tty_name /usr/local/bin
+install tty_rm_name /usr/local/bin
+mkdir /var/log/perinstall
