@@ -1,2 +1,2 @@
 #!/bin/bash
-raspivid -t 999999 -o – | nc $1 8080
+raspivid -t 999999 -w 640 -h 480 -o - | nc -u $1 8080
