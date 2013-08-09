@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "Starting Listner"
+nohup PC_Stream 0<&- &>/dev/null &
+sleep 2
+echo "Adjusting NICE values"
+sudo renice -10 $(pgrep mplayer)
+sudo renice -10 $(pgrep nc.traditional)
+echo "SYstem waiting for input"
