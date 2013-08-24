@@ -1,0 +1,40 @@
+#!/bin/bash
+
+sudo echo "Starting ROSV components"
+
+# Check PWM_Controller is running.
+RUNNING=$(ps -A | grep -c PWM_Controller)
+if [ $RUNNING -eq 1 ]; then
+  echo "PWM_Controller is running"
+else
+  echo "Starting PWM_Controller"
+  PWM_Controller
+fi
+echo "Adjusting the nice value of PWM_Controller"
+sudo renice -n -10 $( pgrep PWM_Controller)
+
+# Check INSd is running.
+RUNNING=$(ps -A | grep -c INSd )
+if [ $RUNNING -eq 1 ]; then
+  echo "INSd is running"
+else
+  echo "Starting INSd"
+  INSd
+fi
+
+echo "Adjusting the nice value of INSd"
+sudo renice -n -12 $( pgrep INSd)
+
+# Check ROSV_Control is running.
+RUNNING=$(ps -A | grep -c ROSV_Control )
+if [ $RUNNING -eq 1 ]; then
+  echo "ROSV_Control is running"
+else
+  echo "Starting ROSV_Control"
+  ROSV_Control &
+  sleep 1
+fi
+
+echo "Adjusting the nice value of ROSV_Control"
+sudo renice -n -10 $( pgrep ROSV_Control)
+

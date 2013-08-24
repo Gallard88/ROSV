@@ -1,0 +1,18 @@
+#!/bin/bash
+
+sudo echo "Startin Submarine Console"
+
+# Check PWM_Controller is running.
+RUNNING=$(ps -A | grep -c ROSV_Console)
+if [ $RUNNING -eq 1 ]; then
+  echo "Console is running"
+else
+  echo "Starting Console"
+  ROSV_Console > /dev/null &
+fi
+echo "Adjusting the nice value of Console"
+sudo renice -n -10 $( pgrep ROSV_Console)
+
+# Check Video Receiver is running.
+echo "Starting Listner"
+PC_Rec_Start

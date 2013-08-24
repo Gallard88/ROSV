@@ -8,4 +8,6 @@ install performance_monitor /usr/local/bin
 install RPI_Stream /usr/local/bin
 install tty_name /usr/local/bin
 install tty_rm_name /usr/local/bin
+install ConsoleStart /usr/local/bin
+install SubStart /usr/local/bin
 mkdir /var/log/perinstall
