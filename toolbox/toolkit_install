@@ -10,4 +10,9 @@ install tty_name /usr/local/bin
 install tty_rm_name /usr/local/bin
 install ConsoleStart /usr/local/bin
 install SubStart /usr/local/bin
-mkdir /var/log/perinstall
+
+EXIST=$(ls /var/log | grep -c performance)
+if [ $EXIST -ne 1 ];
+then
+  mkdir /var/log/performance
+fi
