@@ -1,6 +1,8 @@
 #!/bin/bash
 install eth_test_rx /usr/local/bin
 install eth_test_tx /usr/local/bin
+install PC_Rec_Start /usr/local/bin
+install PC_Rec_Stop /usr/local/bin
 install PC_Stream /usr/local/bin
 install performance_monitor /usr/local/bin
 install RPI_Stream /usr/local/bin
