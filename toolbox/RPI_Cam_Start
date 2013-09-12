@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Starting Cam Stream => $1"
+nohup RPI_Stream $1 0<&- &>/dev/null &
+sleep 1
+echo "Tweak Nice values"
+sudo renice -15 $(pgrep raspivid)
+sudo renice -15 $(pgrep tee)
+sudo renice -15 $(pgrep nc.traditional)
+
