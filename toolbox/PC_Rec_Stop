@@ -1,3 +1,0 @@
-#!/bin/bash
-sudo pkill mplayer
-sudo pkill nc.traditional

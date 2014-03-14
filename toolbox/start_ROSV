@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Log in and start Sub remotely.
+#ssh pi@192.168.4.200
+
+echo "Start Console"
 sudo echo "Startin Submarine Console"
 
 # Check PWM_Controller is running.
@@ -15,4 +19,11 @@ sudo renice -n -10 $( pgrep ROSV_Console)
 
 # Check Video Receiver is running.
 echo "Starting Listner"
-PC_Rec_Start
+nohup PC_Stream 0<&- &> /dev/null &
+sleep 2
+
+sudo renice -10 $(pgrep mplayer)
+sudo renice -10 $(pgrep nc.traditional)
+# Start local system
+echo "Start Camera"
+./create_cam_link.py
