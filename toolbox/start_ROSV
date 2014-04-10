@@ -4,16 +4,26 @@
 #ssh pi@192.168.4.200
 
 echo "Start Console"
-sudo echo "Startin Submarine Console"
+echo "Starting Submarine Console"
 
-# Check PWM_Controller is running.
 # Check Video Receiver is running.
 echo "Starting Listner"
 nohup PC_Stream 0<&- &> /dev/null &
 sleep 2
 
-sudo renice -10 $(pgrep mplayer)
-sudo renice -10 $(pgrep nc.traditional)
+# Log into submarine and start ROSV_Control
+echo "Start ROSV_Control"
+ssh pi@192.168.4.200 '~/ROSV_Control/src/ROSV_Control'
+sleep 2
+
+echo "Start Joystick program"
+ssh thomas@192.168.3.1 'pkill ROSV_Joystick'
+ssh thomas@192.168.3.1 'ROSV_Joystick'
+
+#sudo renice -10 $(pgrep mplayer)
+#sudo renice -10 $(pgrep nc.traditional)
 # Start local system
 echo "Start Camera"
 ./create_cam_link.py
+
+echo "Start up complete"
