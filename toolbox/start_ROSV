@@ -13,7 +13,7 @@ sleep 2
 
 # Log into submarine and start ROSV_Control
 echo "Start ROSV_Control"
-ssh pi@192.168.4.200 '~/ROSV_Control/src/ROSV_Control'
+ssh pi@192.168.4.200 '~/ROSV_Control/src/ROSV_Control' &
 sleep 2
 
 echo "Start Joystick program"
