@@ -1,3 +1,4 @@
 #!/bin/bash
-nc.traditional -l -p 8080 | mplayer -fps 31 -cache 1024 -
+video=/home/thomas/Videos/CamCapture_$(date +%Y%m%d_%H%M%S)
+nc.traditional -l -p 8080 | tee $video | mplayer -fps 31 -cache 1024 -
 
