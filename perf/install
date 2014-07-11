@@ -1,0 +1,5 @@
+#!/bin/bash
+
+install cpu_mon.bash /usr/local/bin
+
+
