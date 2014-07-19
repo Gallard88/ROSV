@@ -1,5 +1,0 @@
-#!/bin/bash
-rm -rf /usr/local/bin/performance_monitor
-rm -rf /usr/local/bin/eth_test_rx
-rm -rf /usr/local/bin/eth_test_tx
-rm -rf /var/log/performance

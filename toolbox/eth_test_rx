@@ -1,5 +1,0 @@
-#!/bin/bash
-echo "Starting Receive Module"
-nc -l 12345 > /dev/null
-echo "Closing Receive Module"
-

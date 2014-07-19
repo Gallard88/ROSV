@@ -1,4 +1,0 @@
-#!/bin/bash
-echo "Downloading tools"
-sudo apt-get install ifstat nethogs iftop vnstat sysstat htop lm-sensors -y
-
