@@ -1,10 +1,15 @@
 #!/bin/bash
-
 # Log in and start Sub remotely.
-#ssh pi@192.168.4.200
+
+# SSH details for the router and ROSV.
+SUB="pi@192.168.4.200"
+ROUTER="thomas@192.168.4.1"
 
 echo "Start Console"
 echo "Starting Submarine Console"
+logger "Start ROSV"
+logger "Now attempting to connect to ROSV"
+
 
 # Check Video Receiver is running.
 echo "Starting Listner"
@@ -13,15 +18,13 @@ sleep 2
 
 # Log into submarine and start ROSV_Control
 echo "Start ROSV_Control"
-ssh pi@192.168.4.200 '~/ROSV_Control/src/ROSV_Control' &
+ssh $SUB '~/ROSV_Control/src/ROSV_Control' &
 sleep 2
 
 echo "Start Joystick program"
-ssh thomas@192.168.3.1 'pkill ROSV_Joystick'
-ssh thomas@192.168.3.1 'ROSV_Joystick'
+ssh $ROUTER 'pkill ROSV_Joystick'
+ssh $ROUTER 'ROSV_Joystick'
 
-#sudo renice -10 $(pgrep mplayer)
-#sudo renice -10 $(pgrep nc.traditional)
 # Start local system
 echo "Start Camera"
 ./create_cam_link.py
