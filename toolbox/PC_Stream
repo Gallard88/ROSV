@@ -1,4 +1,9 @@
 #!/bin/bash
-video=/home/thomas/Videos/CamCapture_$(date +%Y%m%d_%H%M%S)
-nc.traditional -l -p 8080 | tee $video | mplayer -fps 31 -cache 1024 -
+
+dir="/home/thomas/Videos/"
+filename="CamCapture_$(date +%Y%m%d_%H%M%S).avi"
+msg="Saving $filename to $dir"
+logger $msg
+echo $msg
+nc.traditional -l -p 8080 | tee $dir$filename | mplayer -fps 31 -cache 1024 -
 
