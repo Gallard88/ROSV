@@ -1,20 +1,10 @@
 #!/bin/bash
-install eth_test_rx /usr/local/bin
-install eth_test_tx /usr/local/bin
 install PC_Rec_Start /usr/local/bin
 install PC_Rec_Stop /usr/local/bin
 install PC_Stream /usr/local/bin
-install performance_monitor /usr/local/bin
 install RPI_Cam_Start  /usr/local/bin
 install RPI_Stop_Cam /usr/local/bin
 install RPI_Stream /usr/local/bin
-install tty_name /usr/local/bin
-install tty_rm_name /usr/local/bin
 install ConsoleStart /usr/local/bin
 install SubStart /usr/local/bin
 
-EXIST=$(ls /var/log | grep -c performance)
-if [ $EXIST -ne 1 ];
-then
-  mkdir /var/log/performance
-fi
