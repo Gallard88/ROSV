@@ -1,10 +1,8 @@
 #!/bin/bash
-install PC_Rec_Start /usr/local/bin
-install PC_Rec_Stop /usr/local/bin
 install PC_Stream /usr/local/bin
 install RPI_Cam_Start  /usr/local/bin
 install RPI_Stop_Cam /usr/local/bin
 install RPI_Stream /usr/local/bin
-install ConsoleStart /usr/local/bin
-install SubStart /usr/local/bin
+install start_ROSV /usr/local/bin
+
 
