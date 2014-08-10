@@ -16,13 +16,12 @@ logger "Now attempting to connect to ROSV"
 
 # Check Video Receiver is running.
 echo "Starting Listner"
-nohup PC_Stream 0<&- &> /dev/null &
+nohup PC_Stream 0<&- & #&> /dev/null &
 sleep 2
 
 # Log into submarine and start ROSV_Control
 echo "Start ROSV_Control"
-ssh $SUB '~/ROSV_Control/src/ROSV_Control' &
-sleep 2
+ssh $SUB 'sudo ROSV_Control'
 
 echo "Start Joystick program"
 ssh $ROUTER 'pkill ROSV_Joystick'
