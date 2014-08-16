@@ -8,6 +8,9 @@ ROUTER="thomas@192.168.4.1"
 ping -c 1 $ROUTER > /dev/null
 ping -c 1 $SUB > /dev/null
 
+echo "Set time in ROSV"
+set_time $SUB
+
 echo "Start Console"
 echo "Starting Submarine Console"
 logger "Start ROSV"

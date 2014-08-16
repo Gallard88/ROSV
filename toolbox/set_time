@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ $# -ne 1 ];
+then
+  echo "Usage: set_time remotehost"
+  exit -1
+fi
+
+DATE=$(date)
+echo "The current time and date is $DATE"
+CMD='sudo date --set="'
+CMD=$CMD$DATE'"'
+ssh $1 $CMD
+
+
