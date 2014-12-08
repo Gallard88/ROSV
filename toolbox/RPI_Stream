@@ -1,3 +1,5 @@
 #!/bin/bash
-video=/home/pi/video/CamCapture_$(date +%Y%m%d_%H%M%S)
-raspivid -t 999999 -w 640 -h 480 -o - | tee $video | nc.traditional $1 8080
+video=/home/pi/video/CamCapture_$(date +%Y%m%d_%H%M%S).h264
+raspivid -t 999 -w 640 -h 480 -o - | tee $video | nc.traditional $1 8080
+#raspivid -t 999999 -w 640 -h 480 -o - | tee $video | nc.traditional $1 8080
+
