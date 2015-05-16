@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "Starting Mplayer"
-nc $1 8080 | mplayer -fps 31 -cache 1024 -
+nc $1 8091 | mplayer -fps 20 -cache 512 -
 
 
